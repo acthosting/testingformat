@@ -1,0 +1,137 @@
+/* Reset some default styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  padding: 30px;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Style the form container */
+#projectForm {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#projectForm:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* Labels styling */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #444;
+  font-size: 1.1em;
+}
+
+/* Add a red asterisk for required fields */
+label.required::after {
+  content: " *";
+  color: red;
+}
+
+/* Style inputs and selects */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #fff;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #ff6f61;
+  box-shadow: 0 0 8px rgba(255,111,97,0.3);
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  background: linear-gradient(45deg, #ff6f61, #ffcc70);
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(45deg, #ff3b2e, #ffb347);
+  transform: scale(1.05);
+}
+
+/* Style checkbox groups */
+input[type="checkbox"] {
+  accent-color: #ff6f61;
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+label.checkbox-label {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Style for sections (like FRT details) */
+#frt_fields {
+  background: #f0f8ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  border: 2px solid #87cefa;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+#frt_fields:hover {
+  background: #e0f0ff;
+  border-color: #00bfff;
+}
+
+h4 {
+  margin-top: 0;
+  color: #0077b6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Responsive tweaks for small screens */
+@media(max-width: 600px) {
+  #projectForm {
+    padding: 15px;
+  }
+  button[type="submit"] {
+    width: 100%;
+    font-size: 1.1em;
+  }
+}

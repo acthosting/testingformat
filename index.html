@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Details Form</title>
+<!-- Link to your external JavaScript file -->
+<script src="script.js" defer></script>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<h2>Project Details Form</h2>
+
+<form id="projectForm">
+  <!-- Date Field -->
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date" required />
+  <script>
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('date').setAttribute('max', today);
+  document.getElementById('date').value = today;
+  </script>
+  <br>
+
+  <!-- SHIFT Dropdown -->
+  <label for="shift">SHIFT:</label>
+  <select id="shift" name="shift" required>
+    <option value="">Select Shift</option>
+    <option value="Day">Day</option>
+    <option value="Night">Night</option>
+  </select>
+  <br><br>
+
+  <!-- ZONE Dropdown -->
+  <label for="zone">ZONE:</label>
+  <select id="zone" name="zone" required>
+    <option value="">Select Zone</option>
+    <option value="North">North</option>
+    <option value="South">South</option>
+  </select>
+  <br><br>
+
+  <!-- FUNCTION Dropdown -->
+  <label for="function">FUNCTION:</label>
+  <select id="function" name="function" required>
+    <option value="">Select Function</option>
+    <option value="O&M">O&M</option>
+    <option value="P&M">P&M</option>
+    <option value="RR">RR</option>
+    <option value="Special Project">Special Project</option>
+  </select>
+  <br><br>
+
+  <!-- VENDOR_TYPE Dropdown -->
+  <label for="vendor_type">VENDOR_TYPE:</label>
+  <select id="vendor_type" name="vendor_type" required>
+    <option value="">Select Vendor Type</option>
+    <option value="FRT">FRT</option>
+    <option value="CIVIL">CIVIL</option>
+    <option value="Van Vendor">Van Vendor</option>
+  </select>
+  <br><br>
+
+  <!-- TL Name Dropdown -->
+  <label for="tl_name">TL Name:</label>
+  <select id="tl_name" name="tl_name" required>
+    <option value="">Select Function First</option>
+  </select>
+  <br><br>
+
+  <!-- Ne_Name Dropdown -->
+  <label for="ne_name">Ne_Name:</label>
+  <select id="ne_name" name="ne_name" required>
+    <option value="">Select Function and Zone</option>
+  </select>
+  <br><br>
+
+  <!-- VENDOR NAME Dropdown -->
+  <label for="vendor_name">VENDOR NAME:</label>
+  <select id="vendor_name" name="vendor_name" required>
+    <option value="">Select Vendor Type</option>
+  </select>
+  <br><br>
+
+  <!-- Status Dropdown -->
+  <label for="Status">Status:</label>
+  <select id="Status" name="Status" required>
+    <option value="">Select Status</option>
+    <option value="Present">Present</option>
+    <option value="Absent">Absent</option>
+  </select>
+  <br><br>
+
+  <!-- Conditional Fields for Present Status -->
+  <div id="vendor_in_time_div" style="display:none;">
+    <label for="vendor_in_time">Vendor IN TIME:</label>
+    <input type="time" id="vendor_in_time" name="vendor_in_time" />
+    <br><br>
+  </div>
+
+  <div id="reporting_location_div" style="display:none;">
+    <label for="reporting_location">Reporting Location:</label>
+    <input type="text" id="reporting_location" name="reporting_location" />
+    <br><br>
+  </div>
+
+  <div id="intime_vehicle_div" style="display:none;">
+    <label for="intime_vehicle_reading">INTIME VEHICLE METER READING (KM):</label>
+    <input type="number" id="intime_vehicle_reading" name="intime_vehicle_reading" step="0.01" />
+    <br><br>
+  </div>
+  
+  <!-- civil specific fields -->
+  
+  <div id="civil_vendor_section" style="display:none; margin-top:30px; background: #d0f0c0; padding:20px; border-radius:15px; border: 2px solid #4cae4c;">
+    <h3 style="text-align:center; color:#2e7d32;">Civil Vendor Details</h3>
+    
+    <!-- Civil Vendor Team Member Present -->
+    <label>Civil Vendor Team Member Present:</label><br>
+    <label class="checkbox-label" for="civil_driver">
+      <input type="checkbox" id="civil_driver" name="civil_vendor_team_member" value="Driver" /> Driver
+    </label>
+    <label class="checkbox-label" for="civil_helper1">
+      <input type="checkbox" id="civil_helper1" name="civil_vendor_team_member" value="Helper 1" /> Helper 1
+    </label>
+    <label class="checkbox-label" for="civil_helper2">
+      <input type="checkbox" id="civil_helper2" name="civil_vendor_team_member" value="Helper 2" /> Helper 2
+    </label>
+    <label class="checkbox-label" for="civil_helper3">
+      <input type="checkbox" id="civil_helper3" name="civil_vendor_team_member" value="Helper 3" /> Helper 3
+    </label>
+    <label class="checkbox-label" for="civil_helper4">
+      <input type="checkbox" id="civil_helper4" name="civil_vendor_team_member" value="Helper 4" /> Helper 4
+    </label>
+    <br><br>
+  
+    <!-- Materials Spare -->
+    <label for="materials_hdpe">MATERIALS_HDPE DUCT SPARE (UOM IN MTRS):</label>
+    <input type="number" id="materials_hdpe" name="materials_hdpe" step="0.01" placeholder="Enter quantity in meters" />
+    <br><br>
+  
+    <label for="materials_96f">MATERIALS_96F OFC CABLE SPARE (UOM IN MTRS):</label>
+    <input type="number" id="materials_96f" name="materials_96f" step="0.01" placeholder="Enter quantity in meters" />
+    <br><br>
+  
+    <!-- Civil Vendor EMP ID -->
+    <label for="civil_emp_id">Civil VENDOR EMP ID-1:</label>
+    <input type="text" id="civil_emp_id" name="civil_emp_id" placeholder="Enter Employee ID" />
+    <br><br>
+  
+    <!-- Other Eqpt checkboxes -->
+    <label>Other Eqpt:</label><br>
+    <input type="checkbox" id="civil_emergency_light" name="civil_other_eqpt" value="Emergency Light" />
+    <label for="civil_emergency_light">Emergency Light</label><br>
+    
+    <input type="checkbox" id="civil_ladder" name="civil_other_eqpt" value="Ladder" />
+    <label for="civil_ladder">Ladder</label><br>
+  
+    <input type="checkbox" id="civil_umbrella" name="civil_other_eqpt" value="Umbrella" />
+    <label for="civil_umbrella">Umbrella</label><br>
+  
+    <input type="checkbox" id="civil_first_aid" name="civil_other_eqpt" value="First Aid Kit" />
+    <label for="civil_first_aid">First Aid Kit</label><br>
+  
+    <input type="checkbox" id="civil_safety_cone" name="civil_other_eqpt" value="Safety Cone (4 Nos)" />
+    <label for="civil_safety_cone">Safety Cone (4 Nos)</label><br>
+  
+    <input type="checkbox" id="civil_spare_battery" name="civil_other_eqpt" value="Spare Splicing Machine Battery" />
+    <label for="civil_spare_battery">Spare Splicing Machine Battery</label>
+  </div>
+  <br>
+  <!-- van vendor specific fields -->
+  
+  <div id="van_vendor_section" style="display:none; margin-top:30px; background: #ffe4e1; padding:20px; border-radius:15px; border: 2px solid #ff7f7f;">
+    <h3 style="text-align:center; color:#d6336c;">Van Vendor Details</h3>
+    
+    <!-- Van Vendor Team Member Present -->
+    <label>Van Vendor Team Member Present:</label><br>
+    <label class="checkbox-label" for="van_driver">
+      <input type="checkbox" id="van_driver" name="van_vendor_team_member" value="Driver" /> Driver
+    </label>
+    <label class="checkbox-label" for="van_helper1">
+      <input type="checkbox" id="van_helper1" name="van_vendor_team_member" value="Helper 1" /> Helper 1
+    </label>
+    <label class="checkbox-label" for="van_helper2">
+      <input type="checkbox" id="van_helper2" name="van_vendor_team_member" value="Helper 2" /> Helper 2
+    </label>
+    <label class="checkbox-label" for="van_helper3">
+      <input type="checkbox" id="van_helper3" name="van_vendor_team_member" value="Helper 3" /> Helper 3
+    </label>
+    <br><br>
+  
+    <!-- NE Splicing Machine Available -->
+    <label for="van_ne_splicing_machine">NE Splicing Machine Available:</label>
+    <select id="van_ne_splicing_machine" name="van_ne_splicing_machine" class="frt_field">
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    <br><br>
+  
+    <!-- NE OTDR with IOLM -->
+    <label for="van_ne_otdr">NE OTDR with IOLM:</label>
+    <select id="van_ne_otdr" name="van_ne_otdr" class="frt_field">
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    <br><br>
+  
+    <!-- VENDOR EMP IDs -->
+    <label for="van_driver_emp_id">VENDOR DRIVER EMP ID:</label>
+    <input type="text" id="van_driver_emp_id" name="van_driver_emp_id" placeholder="Enter Driver EMP ID" />
+    <br><br>
+    <label for="van_helper1_emp_id">HELPER 1 EMP ID:</label>
+    <input type="text" id="van_helper1_emp_id" name="van_helper1_emp_id" placeholder="Enter Helper 1 EMP ID" />
+    <br><br>
+    <label for="van_helper2_emp_id">HELPER 2 EMP ID:</label>
+    <input type="text" id="van_helper2_emp_id" name="van_helper2_emp_id" placeholder="Enter Helper 2 EMP ID" />
+    <br><br>
+    <label for="van_helper3_emp_id">HELPER 3 EMP ID:</label>
+    <input type="text" id="van_helper3_emp_id" name="van_helper3_emp_id" placeholder="Enter Helper 3 EMP ID" />
+  </div>
+
+
+
+  <!-- FRT specific fields -->
+  <div id="frt_fields" style="display:none; border:1px solid #ccc; padding:10px;">
+    <h4>FRT Specific Details</h4>
+    <!-- NE Splicing Machine Available -->
+    <label for="ne_splicing_machine">NE Splicing Machine Available:</label>
+    <select id="ne_splicing_machine" name="ne_splicing_machine" class="frt_field">
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    <br><br>
+
+    <!-- NE OTDR with IOLM -->
+    <label for="ne_otdr">NE OTDR with IOLM:</label>
+    <select id="ne_otdr" name="ne_otdr" class="frt_field">
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    <br><br>
+
+    <!-- Vendor Team Member Present -->
+    <label>Vendor Team Member Present:</label><br>
+    <label for="driver">Driver</label>
+    <input type="checkbox" class="vendor-team-member" id="driver" name="vendor_team_member" value="Driver" /><br>
+    <label for="splicer">Splicer</label>
+    <input type="checkbox" class="vendor-team-member" id="splicer" name="vendor_team_member" value="Splicer" /><br>
+    <label for="helper1">Helper 1</label>
+    <input type="checkbox" class="vendor-team-member" id="helper1" name="vendor_team_member" value="Helper 1" /><br>
+    <label for="helper2">Helper 2</label>
+    <input type="checkbox" class="vendor-team-member" id="helper2" name="vendor_team-member" value="Helper 2" /><br>
+    <br><br>
+
+    <!-- Vendor Team Member Double Shift -->
+    <label>VENDOR TEAM MEMBER DOUBLE SHIFT:</label><br>
+    <label for="driver2">Driver</label>
+    <input type="checkbox" class="vendor-team-member" id="driver2" name="vendor_team_member_double_shift" value="Driver" /><br>
+    <label for="splicer2">Splicer</label>
+    <input type="checkbox" class="vendor-team-member" id="splicer2" name="vendor_team_member_double_shift" value="Splicer" /><br>
+    <label for="helper1_2">Helper 1</label>
+    <input type="checkbox" class="vendor-team-member" id="helper1_2" name="vendor_team_member_double_shift" value="Helper 1" /><br>
+    <label for="helper2_2">Helper 2</label>
+    <input type="checkbox" class="vendor-team-member" id="helper2_2" name="vendor_team_member_double_shift" value="Helper 2" /><br>
+    <br><br>
+
+    <!-- OTDR_Status -->
+    <label for="otdr_status">OTDR_Status:</label>
+    <select id="otdr_status" name="otdr_status" required>
+      <option value="">Select</option>
+      <option value="Working">Working</option>
+      <option value="Not Working">Not Working</option>
+      <option value="Not Avl">Not Avl</option>
+    </select>
+    <br><br>
+
+    <!-- Cleaver_Status -->
+    <label for="cleaver_status">Cleaver_Status:</label>
+    <select id="cleaver_status" name="cleaver_status" required>
+      <option value="">Select</option>
+      <option value="Working">Working</option>
+      <option value="Not Working">Not Working</option>
+      <option value="Not Avl">Not Avl</option>
+    </select>
+    <br><br>
+
+    <!-- POWER METER_Status -->
+    <label for="power_meter_status">POWER METER_Status:</label>
+    <select id="power_meter_status" name="power_meter_status" required>
+      <option value="">Select</option>
+      <option value="Working">Working</option>
+      <option value="Not Working">Not Working</option>
+      <option value="Not Avl">Not Avl</option>
+    </select>
+    <br><br>
+
+    <!-- VFL-LASER LIGHT_Status -->
+    <label for="vfl_status">VFL-LASER LIGHT_Status:</label>
+    <select id="vfl_status" name="vfl_status" required>
+      <option value="">Select</option>
+      <option value="Working">Working</option>
+      <option value="Not Working">Not Working</option>
+      <option value="Not Avl">Not Avl</option>
+    </select>
+    <br><br>
+
+    <!-- MATERIALS_96F OFC CABLE SPARE -->
+    <label for="materials_96f">MATERIALS_96F OFC CABLE SPARE (MTRS):</label>
+    <input type="number" id="materials_96f" name="materials_96f" step="0.01" />
+    <br><br>
+
+    <!-- MATERIALS_24F OFC CABLE SPARE -->
+    <label for="materials_24f">MATERIALS_24F OFC CABLE SPARE (MTRS):</label>
+    <input type="number" id="materials_24f" name="materials_24f" step="0.01" />
+    <br><br>
+
+    <!-- MATERIALS_JOINT CLOSURES -->
+    <label for="materials_joint">MATERIALS_JOINT CLOSURES:</label>
+    <input type="number" id="materials_joint" name="materials_joint" />
+    <br><br>
+
+    <!-- MATERIALS_TB -->
+    <label for="materials_tb">MATERIALS_TB:</label>
+    <input type="number" id="materials_tb" name="materials_tb" />
+    <br><br>
+
+    <!-- VENDOR EMP ID-1 -->
+    <label for="vendor_emp_id1">VENDOR EMP ID-1:</label>
+    <input type="text" id="vendor_emp_id1" name="vendor_emp_id1" onchange="validateVendorEmpId('vendor_emp_id1')"/>
+    <br><br>
+
+    <!-- VENDOR EMP ID-2 -->
+    <label for="vendor_emp_id2">VENDOR EMP ID-2:</label>
+    <input type="text" id="vendor_emp_id2" name="vendor_emp_id2" onchange="validateVendorEmpId('vendor_emp_id2')" />
+    <br><br>
+
+    <!-- Other Eqpt -->
+   <label>Other Eqpt:</label><br>
+      <label for="emergency_light">Emergency Light</label>
+      <input type="checkbox" id="emergency_light" name="other_eqpt" value="Emergency Light">
+      <label for="ladder">Ladder</label>
+      <input type="checkbox" id="ladder" name="other_eqpt" value="Ladder">
+      <label for="umbrella">Umbrella</label>
+      <input type="checkbox" id="umbrella" name="other_eqpt" value="Umbrella">
+      <label for="first_aid">First Aid Kit</label>
+      <input type="checkbox" id="first_aid" name="other_eqpt" value="First Aid Kit">
+       <label for="safety_cone">Safety Cone (4 Nos)</label>     
+      <input type="checkbox" id="safety_cone" name="other_eqpt" value="Safety Cone (4 Nos)">
+      <label for="spare_battery">Spare Splicing Machine Battery</label>
+      <input type="checkbox" id="spare_battery" name="other_eqpt" value="Spare Splicing Machine Battery">
+    <br><br>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
